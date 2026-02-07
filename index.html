@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>My Library</h1>
+    <button id="create">New Book</button>
+    <div id="myModal">
+        <form id="form"action="">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" required>
+              <label for="author">Author: </label>
+            <input type="text" name="author" id="author" required>
+              <label for="pages">Pages: </label>
+            <input type="text" name="pages" id="pages" required>
+            <input type="submit" id="submit" value="Add new Book">
+        </form>
+        <button id="close">Close</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

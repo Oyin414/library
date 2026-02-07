@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+}
+
+#create{
+    display: block;
+  margin: 20px auto;
+   background-color: blanchedalmond;
+   padding: 10px;
+   border-radius: 8px;
+}
+
+input,label{
+    margin: 8px 5px;
+}
+
+input:not([type="submit"]){
+    width: 15vw;
+}
+
+label{
+    width: 5vw;
+}
+
+#submit,#close{
+    display: block;
+    padding: 3px;
+    width: 10vw;
+    margin: 6px auto;
+}
+
+#myModal{
+    display: none;
+   margin: 10px auto;
+    bottom: 50%;
+    border: 1px solid black;
+    width: 20vw;
+    height: 25vh;
+    
+}
