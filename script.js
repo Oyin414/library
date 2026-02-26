@@ -16,15 +16,15 @@ closeModal.addEventListener("click",()=>{
 /* Creating the book constructor and adding it to an array */
 const myLibrary = [];
 
-function Book(title,author,pages) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-  }
-  this.title = title;
+class Book {
+ constructor(title,author,pages){
+    this.title = title;
   this.author = author;
   this.pages = pages;
   this.id = crypto.randomUUID();
+ }
 }
+
 function addBookToLibrary(event) {
 event.preventDefault();
 
@@ -46,9 +46,7 @@ function displayBooks(book){
         const buttonBox = document.createElement('div')
         bookBox.className = 'bookBox'
         buttonBox.className = 'buttonBox'
-        const listOne = document.createElement("p")
-        const listTwo = document.createElement("p")
-        const listThree = document.createElement("p")
+
         const removeButton = document.createElement("button")
         removeButton.textContent = "Remove Book"
         const togglebutton = document.createElement("button")
@@ -57,20 +55,23 @@ function displayBooks(book){
     let authorContent = document.createTextNode("Author: " + book.author);
     let categoryContent = document.createTextNode("Pages: " + book.pages);
     let idContent = book.id
-    listOne.appendChild(titleContent);
-    listTwo.appendChild(authorContent);
-    listThree.appendChild(categoryContent);
-     
-      listOne.className ='listItem'
-      listTwo.className ='listItem'
-      listThree.className ='listItem'
+      for (let i = 0; i < 3; i++) {
+            let listItem = document.createElement('p');
+            listItem.className ='listItem'
+            if (i === 0){
+                listItem.appendChild(titleContent)
+            }else if (i === 1){
+                listItem.appendChild(authorContent)
+            }else{
+                listItem.appendChild(categoryContent)
+            }
+            bookBox.appendChild(listItem)
+        }
+   
       removeButton.className='btnOne'
       togglebutton.className='btnTwo'
        buttonBox.appendChild(removeButton)
       buttonBox.appendChild(togglebutton)
-      bookBox.appendChild(listOne)
-      bookBox.appendChild(listTwo)
-      bookBox.appendChild(listThree)
       bookBox.appendChild(buttonBox)
       container.appendChild(bookBox)
 
