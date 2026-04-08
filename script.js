@@ -28,13 +28,42 @@ class Book {
 function addBookToLibrary(event) {
 event.preventDefault();
 
-let bookTitle = document.getElementById("title").value
-let bookAuthor =  document.getElementById("author").value
-let bookPages =  document.getElementById("pages").value
+  let titleInput = document.getElementById("title");
+    let authorInput = document.getElementById("author");
+    let pagesInput = document.getElementById("pages");
 
+let bookTitle = titleInput.value
+let bookAuthor =  authorInput.value
+let bookPages =  pagesInput.value
+
+titleInput.setCustomValidity("");
+    authorInput.setCustomValidity("");
+    pagesInput.setCustomValidity("");
+
+if(titleInput.validity.valueMissing){
+titleInput.setCustomValidity("Please fill in the Title");
+titleInput.reportValidity()
+return;
+}
+
+ if(authorInput.validity.valueMissing){
+authorInput.setCustomValidity("Please add an author");
+authorInput.reportValidity()
+return;
+}
+
+if(pagesInput.validity.valueMissing){
+pagesInput.setCustomValidity("Please add a page number");
+pagesInput.reportValidity()
+return;
+}
+    
 let book = new Book(bookTitle,bookAuthor,bookPages)
  myLibrary.push(book)
  displayBooks(book)
+  
+
+
 }
 
 submit.addEventListener("click",addBookToLibrary);
